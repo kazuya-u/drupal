@@ -1,0 +1,10 @@
+uuid: fda367ab-c06d-4de3-a0e9-25bc6b373c5e
+langcode: ja
+status: true
+dependencies:
+  module:
+    - menu_link_content
+id: menu_link_content.token
+label: Token
+targetEntityType: menu_link_content
+cache: true
