@@ -1,0 +1,14 @@
+uuid: 8f3d180b-7b52-4f53-84ea-780b5f9d1b83
+langcode: ja
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: Mb_L3vE-0IBZH5s2rjpk2LNn0QHClQP9AARQdCmVLt4
+id: translations
+label: 翻訳
+category: Language
+likert: false
+options: ''

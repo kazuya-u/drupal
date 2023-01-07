@@ -1,0 +1,13 @@
+uuid: 53c27c2a-9d8d-448f-a353-486ed8031b4e
+langcode: ja
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: nvrL9bFilzBvm2bjO9rQnFDpBA7dBBUjShSSt6NS-DU
+id: user_cancel_user_action
+label: 選択されたユーザーアカウントをキャンセル
+type: user
+plugin: user_cancel_user_action
+configuration: {  }

@@ -1,0 +1,10 @@
+uuid: 85dcfeb8-7ed3-4c8a-9c4c-0bcc5cd75ce9
+langcode: ja
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Q2Ra3jfoIVk0f3SjxJX61byRQFVBAbpzYDQOiY-kno8
+id: main
+label: メインナビゲーション
+description: サイトセクションのリンク
+locked: true
