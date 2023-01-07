@@ -1,0 +1,16 @@
+uuid: 4bf3c36c-1ab5-4e81-a54f-d1345f21d3ed
+langcode: ja
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform_node
+_core:
+  default_config_hash: BuY_3PjmYtRTSuvyFORJZUe0-TQiNXEE6yYQ_dkjxW8
+name: ウェブフォーム
+type: webform
+description: 'A basic page with a webform attached.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

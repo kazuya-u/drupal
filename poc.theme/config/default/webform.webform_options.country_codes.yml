@@ -1,0 +1,14 @@
+uuid: ecc73182-df6e-4dbd-b6af-619081e33ec7
+langcode: ja
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: adQ16YGDPk7QfUKrfrC35o2sKdHEozdNtdpiH7CftQQ
+id: country_codes
+label: 国コード
+category: 地理
+likert: false
+options: ''

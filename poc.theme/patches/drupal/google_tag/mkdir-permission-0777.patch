@@ -1,0 +1,7 @@
+diff --git a/google_tag.module b/google_tag.module
+index 368766ab..c5cca094 100644
+--- a/google_tag.module
++++ b/google_tag.module
+@@ -129 +129 @@ function _file_prepare_directory(&$directory, $options = FileSystemInterface::MO
+-      return @$file_system->mkdir($directory, NULL, TRUE);
++      return @$file_system->mkdir($directory, 0777, TRUE);
