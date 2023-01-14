@@ -24,6 +24,7 @@ module:
   filter: 0
   google_tag: 0
   image: 0
+  jmeter: 0
   language: 0
   link: 0
   locale: 0
