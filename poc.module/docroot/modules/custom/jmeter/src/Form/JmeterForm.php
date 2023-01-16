@@ -34,9 +34,9 @@ class JmeterForm extends FormBase {
     );
   }
 
-  const jmeter_info = [
-    'Jmeter1' => true,
-    'Jmeter2' => false,
+  const JMETER_SERVER = [
+    'jmeter01',
+    'jmeter02',
   ];
 
   /**
@@ -49,16 +49,16 @@ class JmeterForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state)
   {
-    foreach(self::jmeter_info as $key => $jmeter) {
-      $form[$key . 'Start'] = [
+    foreach(self::JMETER_SERVER as $server) {
+      $form[$server . 'start'] = [
         '#type' => 'submit',
-        '#value' => $key . ' start',
-        '#disabled' => !$jmeter,
+        '#value' => $server . ' Start',
+        '#disabled' => file_exists('/app/config/jmeter/' . $server . '.txt'),
       ];
-      $form[$key . 'Stop'] = [
+      $form[$server . 'stop'] = [
         '#type' => 'submit',
-        '#value' => $key . ' stop',
-        '#disabled' => $jmeter,
+        '#value' => $server . ' Stop',
+        '#disabled' => !file_exists('/app/config/jmeter/' . $server . '.txt'),
       ];
     }
     return $form;
@@ -71,13 +71,12 @@ class JmeterForm extends FormBase {
     $form_input_op = $form_input['op'];
     $jmeter_pressed = preg_split('/\s/', $form_input_op);
     // 押したボタン名が、配列のなかにその配列名があるかのエラー処理。
-    if (!in_array($jmeter_pressed['0'], self::jmeter_info)) return;
+    if (!in_array($jmeter_pressed['0'], self::JMETER_SERVER)) return;
     $file_name = '/app/config/jmeter/' . $jmeter_pressed['0'] . '.txt';
     file_exists($file_name) ? \Drupal::service('file_system')->unlink($file_name) : touch($file_name);
     $this->messenger()->addStatus(
       file_exists($file_name) ? $this->t($jmeter_pressed['0'] . 'が起動しました。') : $this->t($jmeter_pressed['0'] . 'が停止しました。')
     );
-
     // $subjectは入力する文字だから、どのボタンを押したかが入っている。例：「Jmater1 Start」
     // //preb_matchは、入力されたボタンの文字を区切るためのものっていう認識。
     // if (preg_match('/[\s]/', $form_input_op, $matches)) {
