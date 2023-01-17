@@ -104,22 +104,5 @@ class JmeterForm extends FormBase {
       touch($user_file_name);
       $this->messenger()->addStatus($this->t($jmeter_pressed['0'] . 'が起動しました。 - 使用者：' . $user_name));
     }
-    // file_exists($file_name) ? \Drupal::service('file_system')->unlink($file_name) : touch($file_name);
-    // $this->messenger()->addStatus(
-    //   file_exists($file_name) ? $this->t($jmeter_pressed['0'] . 'が起動しました。') : $this->t($jmeter_pressed['0'] . 'が停止しました。')
-    // );
-    // $submit_state[$jmeter_pressed['0'] . 'status'] = [
-    //   '#title_display' => $user_name,
-    // ];
   }
 }
-
-// kint();
-// $form[$jmeter_pressed['0'] . 'state']['user'] = \Drupal::service('file_system');
-// exit;
-// $subjectは入力する文字だから、どのボタンを押したかが入っている。例：「Jmater1 Start」
-// //preb_matchは、入力されたボタンの文字を区切るためのものっていう認識。
-// if (preg_match('/[\s]/', $form_input_op, $matches)) {
-//   kint($matches);
-//   exit;
-// }
