@@ -5,7 +5,7 @@
 #   requirements:
 #     _permission: 'access content'
 jmeter.form:
-  path: '/jmeter/form'
+  path: '/admin/jmeter'
   defaults:
     _form: '\Drupal\jmeter\Form\JmeterForm'
     _title: 'Jmeter Starter'
