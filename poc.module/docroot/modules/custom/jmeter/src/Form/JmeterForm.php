@@ -49,7 +49,6 @@ class JmeterForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state)
   {
     $file_dir = explode('docroot', __DIR__);
-    kint($file_dir);
     $takayama_file = $file_dir['0'] . 'files-private/takayama/start.txt';
     $file_dir = $file_dir['0'] . 'files-private/jmeter/';
 
@@ -79,10 +78,8 @@ class JmeterForm extends FormBase {
 
     $file_dir = explode('docroot', __DIR__);
     $file_dir = $file_dir['0'] . 'files-private/jmeter/';
-    // 送信時のユーザー名
     $user_name = \Drupal::currentUser()->getDisplayName();
     $form_input = $form_state->getUserInput();
-    // Name of button pressed.
     $form_input_op = $form_input['op'];
     if (preg_match('/^(?<server>[^\s]+) (?<mode>[^\s]+)$/', $form_input_op, $matches) && in_array($matches['server'], self::JMETER_SERVER, TRUE)) {
       $file_name = $file_dir . $matches['server'] . '.txt';
