@@ -52,7 +52,7 @@ class JmeterForm extends FormBase {
     $currentDateTime = new DateTime();
     $currentDateTime = strtotime($currentDateTime->format('H:i:s'));
     $file_dir = '/app/config/jmeter/';
-    $user_dir = glob('/app/config/jmeter/user/*');
+    $user_dir = glob('/app/config/jmeter/sub/*');
     foreach ($user_dir as $user_file) {
       $user_file = preg_replace("/(.+)(\.[^.]+$)/", "$1", $user_file);
       $user_file = explode('/', $user_file);
@@ -109,11 +109,15 @@ class JmeterForm extends FormBase {
     }
     return $form;
   }
+  public function validateForm(array &$form, FormStateInterface $form_state)
+  {
+    parent::validateForm($form, $form_state);
+  }
 
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
     $user_name = \Drupal::currentUser()->getDisplayName();
-    $submitDateTime = new DateTime();
+    $submit_date_time = new DateTime();
     $file_name = '';
     $form_input = $form_state->getUserInput();
     $form_input_op = $form_input['op'];
@@ -121,10 +125,10 @@ class JmeterForm extends FormBase {
     // 押したボタン名が、配列のなかにその配列名があるかのエラー処理。
     if (!in_array($jmeter_pressed['0'], self::JMETER_SERVER)) return;
     $file_name = '/app/config/jmeter/' . $jmeter_pressed['0'] . '.txt';
-    $user_file_name = '/app/config/jmeter/user/' . $jmeter_pressed['0'] . '_' . $user_name . '_' . $submitDateTime->format('H:i:s') . '.txt';
+    $user_file_name = '/app/config/jmeter/sub/' . $jmeter_pressed['0'] . '_' . $user_name . '_' . $submit_date_time->format('H:i:s') . '.txt';
     if (file_exists($file_name)) {
       \Drupal::service('file_system')->unlink($file_name);
-      $user_dir = glob('/app/config/jmeter/user/*');
+      $user_dir = glob('/app/config/jmeter/sub/*');
       foreach ($user_dir as $user_file) {
         if (!strpos($user_file, $jmeter_pressed['0'])) continue;
         $user_file_name = $user_file;
