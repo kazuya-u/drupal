@@ -49,25 +49,25 @@ class JmeterForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state)
   {
     $file_dir = explode('docroot', __DIR__);
-    $takayama_file = $file_dir['0'] . 'files-private/takayama/start.txt';
-    $file_dir = $file_dir['0'] . 'files-private/jmeter/';
+    $action_file_dir = $file_dir['0'] . 'files-private/aws/jmeter/ec2/action/';
+    $flag_file_dir = $file_dir['0'] . 'files-private/aws/jmeter/ec2/flag/';
 
     foreach(self::JMETER_SERVER as $server) {
-      $user_name = file_exists($file_dir . $server . '.txt') ? file_get_contents($file_dir . $server . '.txt') : '';
+      $user_name = file_exists($action_file_dir . $server . '.txt') ? file_get_contents($action_file_dir . $server . '.txt') : '';
       $form[$server . 'status'] = [
         '#type' => 'textfield',
-        '#value' => file_exists($file_dir . $server . '.txt') ? $user_name . 'が' . $server . '起動中。' : $server . '停止中。',
+        '#value' => file_exists($action_file_dir . $server . '.txt') ? $user_name . 'が' . $server . '起動中。' : $server . '停止中。',
         '#disabled' => true,
       ];
       $form[$server . 'start'] = [
         '#type' => 'submit',
         '#value' => $server . ' Start',
-        '#disabled' => file_exists($takayama_file) ? true :  file_exists($file_dir . $server . '.txt'),
+        '#disabled' => file_exists($flag_file_dir . $server . '.txt') ? true :  file_exists($action_file_dir . $server . '.txt'),
       ];
       $form[$server . 'stop'] = [
         '#type' => 'submit',
         '#value' => $server . ' Stop',
-        '#disabled' => !file_exists($file_dir . $server . '.txt'),
+        '#disabled' => file_exists($flag_file_dir . $server . '.txt') ? true :  !file_exists($action_file_dir . $server . '.txt'),
       ];
     }
     return $form;
@@ -77,21 +77,25 @@ class JmeterForm extends FormBase {
   {
 
     $file_dir = explode('docroot', __DIR__);
-    $file_dir = $file_dir['0'] . 'files-private/jmeter/';
+    $action_file_dir = $file_dir['0'] . 'files-private/aws/jmeter/ec2/action/';
+    $flag_file_dir = $file_dir['0'] . 'files-private/aws/jmeter/ec2/flag/';
     $user_name = \Drupal::currentUser()->getDisplayName();
     $form_input = $form_state->getUserInput();
     $form_input_op = $form_input['op'];
     if (preg_match('/^(?<server>[^\s]+) (?<mode>[^\s]+)$/', $form_input_op, $matches) && in_array($matches['server'], self::JMETER_SERVER, TRUE)) {
-      $file_name = $file_dir . $matches['server'] . '.txt';
+      $action_file = $action_file_dir . $matches['server'] . '.txt';
+      $flag_file = $flag_file_dir . $matches['server'] . '.txt';
       if ($matches['mode'] === 'Start') {
         // Create file.
-        touch($file_name);
+        touch($action_file);
+        touch($flag_file);
         $this->messenger()->addStatus($this->t($matches['server'] . 'が起動しました。 - 使用者：' . $user_name));
-        file_put_contents($file_name, $user_name);
+        file_put_contents($action_file, $user_name);
       }
       else {
         // Delete file.
-        \Drupal::service('file_system')->unlink($file_name);
+        \Drupal::service('file_system')->unlink($action_file);
+        touch($flag_file);
         $this->messenger()->addStatus($this->t($matches['server'] . 'が停止しました。'));
       }
     }
