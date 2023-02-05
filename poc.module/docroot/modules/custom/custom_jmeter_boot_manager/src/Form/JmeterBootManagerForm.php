@@ -45,7 +45,7 @@ class JmeterBootManagerForm extends FormBase {
    */
   public function getFormId()
   {
-    return 'jmeter_toggle';
+    return 'jmeter_boot_manager';
   }
 
   public function buildForm(array $form, FormStateInterface $form_state)
