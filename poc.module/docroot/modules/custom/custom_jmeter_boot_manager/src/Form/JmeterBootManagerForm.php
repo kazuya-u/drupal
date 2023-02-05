@@ -1,16 +1,18 @@
 <?php
 
-namespace Drupal\jmeter\Form;
+namespace Drupal\custom_jmeter_boot_manager\Form;
 
-use Drupal;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Psr\Container\ContainerInterface;
-class JmeterForm extends FormBase {
+
+/**
+ * Jmter Boot Manager Form class.
+ */
+class JmeterBootManagerForm extends FormBase {
 
   /**
-   *
    * @var Drupal\Core\File\FileSystem
    */
   protected $fileSystem;
@@ -55,12 +57,13 @@ class JmeterForm extends FormBase {
     foreach(self::JMETER_SERVER as $server) {
       $user_name = file_exists($action_file_dir . $server . '.txt') ? file_get_contents($action_file_dir . $server . '.txt') : '';
       $form[$server . 'status'] = [
-        '#type' => 'textfield',
-        '#value' => file_exists($action_file_dir . $server . '.txt') ? $user_name . 'が' . $server . '起動中。' : $server . '停止中。',
+        '#type' => 'fieldset',
+        '#title' => file_exists($action_file_dir . $server . '.txt') ? $user_name . 'が' . $server . '起動中。' : $server . '停止中。',
         '#disabled' => true,
       ];
       $form[$server . 'start'] = [
         '#type' => 'submit',
+        '#name' => $server,
         '#value' => $server . ' Start',
         '#disabled' => file_exists($flag_file_dir . $server . '.txt') ? true :  file_exists($action_file_dir . $server . '.txt'),
       ];
