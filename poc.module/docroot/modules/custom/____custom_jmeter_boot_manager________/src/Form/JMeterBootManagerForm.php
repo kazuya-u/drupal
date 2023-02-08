@@ -112,9 +112,15 @@ class JMeterBootManagerForm extends FormBase {
     switch ($direction) {
       case 'Start':
         $message_string = '<p>Started by @user_name at @datetime.</p>';
-        if (!$this->jMeterBootManager->saveAction($server, strtr($message_string, $message_args))
-          || !$this->jMeterBootManager->saveFlag($server, $datetime->getTimestamp())
+        // if (!($this->jMeterBootManager->saveAction($server, strtr($message_string, $message_args))
+        //   && $this->jMeterBootManager->saveFlag($server, $datetime->getTimestamp())
+        // )) {
+        if ($this->jMeterBootManager->saveAction($server, strtr($message_string, $message_args))
+          && $this->jMeterBootManager->saveFlag($server, $datetime->getTimestamp())
         ) {
+          // no script.
+        }
+        else {
           $message_type = MessengerInterface::TYPE_ERROR;
         }
         break;
