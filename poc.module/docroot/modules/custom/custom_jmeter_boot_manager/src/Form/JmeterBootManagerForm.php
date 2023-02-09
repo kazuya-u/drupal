@@ -2,10 +2,10 @@
 
 namespace Drupal\custom_jmeter_boot_manager\Form;
 
-use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\custom_jmeter_boot_manager\Service\JmeterBootManagerService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -23,6 +23,7 @@ class JmeterBootManagerForm extends FormBase {
    * Constructs.
    *
    * @param Drupal\custom_jmeter_boot_manager\Service\JmeterBootManagerService $jmeter_boot_manager
+   *  The jmeter boot manager service.
    */
   public function __construct(
     JmeterBootManagerService $jmeter_boot_manager,
@@ -53,15 +54,15 @@ class JmeterBootManagerForm extends FormBase {
       $form[$jmeter] = [
         '#type' => 'fieldset',
         '#title' => $jmeter,
+        '#markup' => $this->JmeterBootManagerService->loadAction($jmeter),
         'start_stop' => [
           '#type' => 'submit',
           '#name' => $jmeter,
           '#value' => $this->JmeterBootManagerService->actionExists($jmeter) ? 'Stop' : 'Start',
-          // '#disabled' =>
+          '#disabled' => $this->JmeterBootManagerService->flagExists($jmeter),
         ],
       ];
     }
-    exit;
     return $form;
   }
 
@@ -72,14 +73,12 @@ class JmeterBootManagerForm extends FormBase {
   {
     $values = $form_state->getUserInput();
     $server = '';
-    $jmeter_servers = array_map(fn ($i) => sprintf('jmeter%02d', $i), range(1, self::NUMBR_OF_JMETER_SERVERS));
-    foreach ($jmeter_servers as $jmeter) {
+    foreach ($this->JmeterBootManagerService->getServers() as $jmeter) {
       if ($values[$jmeter] ?? '') {
         $server = $jmeter;
         break;
       }
     }
-    // kint($form_state);
     if ($server === '') {
       $form_state->setError($form, 'Server operations not managed by a JMeter Boot Manager are prohibited.');
     }
@@ -90,50 +89,55 @@ class JmeterBootManagerForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-    $values = $form_state->getUserInput();
+    $values = $form_state->getValues();
     $server = '';
     $direction = '';
-    $jmeter_servers = array_map(fn ($i) => sprintf('jmeter%02d', $i), range(1, self::NUMBR_OF_JMETER_SERVERS));
-    foreach ($jmeter_servers as $jmeter) {
+    foreach ($this->JmeterBootManagerService->getServers() as $jmeter) {
       if ($direction = $values[$jmeter] ?? '') {
         $server = $jmeter;
         break;
       }
     }
-    kint($direction);
     if ($server === '') {
       return;
     }
-    $message_type = '';
+    $datetime = new DrupalDateTime('now', JmeterBootManagerService::TIMEZONE);
     $message_string = '';
+    $message_args = [
+      '@user_name' => $this->JmeterBootManagerService->currentUser->getDisplayName(),
+      '@datetime' => $datetime->format('Y-m-d H:i:s e'),
+    ];
+    $message_type = MessengerInterface::TYPE_STATUS;
     switch ($direction) {
       case 'Start':
-        $message_string = 'Start by __ at __.';
-        if ($this->JmeterBootManager->saveData('umeki', self::SAVE_DIRECTORIES['action'] . $server . self::FILE_EXTENSION, FileSystemInterface::EXISTS_REPLACE)) {
+        $message_string = '<p>Start by @user_name at @datetime.</p>';
+        if ($this->JmeterBootManagerService->saveAction($server, strtr($message_string, $message_args)) && $this->JmeterBootManagerService->saveFlag($jmeter)) {
           // no script.
-          kint('fileが書き換えられたよ');
         }
         else {
-          $message_type = 'ファイル操作ミス';
+          $message_type = MessengerInterface::TYPE_ERROR;
         }
         break;
       case 'Stop':
-        $message_string = 'Stop by __ at __.';
-        if ($this->JmeterBootManager->delete(self::SAVE_DIRECTORIES['action'] . $server . self::FILE_EXTENSION)) {
+        $message_string = '<p>Stop by @user_name at @datetime.</p>';
+        if ($this->JmeterBootManagerService->deleteAction($server) && $this->JmeterBootManagerService->saveFlag($jmeter)) {
           // no script.
-          kint('ファイルの滅却。');
         }
         else {
-          $message_type = 'ファイル操作ミス';
+          $message_type = MessengerInterface::TYPE_ERROR;
         }
         break;
     }
-    if ($message_type === 'ファイル操作ミス') {
-      $message_string = 'ミス';
+    if ($message_type === MessengerInterface::TYPE_ERROR) {
+      $message_string = '<p><em>An unexpected problem has occurred';
+      $message_string_end = '.</em></p>';
+      $this->JmeterBootManagerService->saveAction($server, $message_string . $message_string_end);
+      $message_string .= ' on the @jmeter' . $message_string_end;
+      $message_args = ['@jmeter' => $jmeter];
     }
     else {
-      $message_string = 'jmeter01' . $message_string;
+      $message_string = strtolower($jmeter . ' ' . $message_string);
     }
-    $this->messenger()->addStatus($message_string);
+    $this->JmeterBootManagerService->messenger($message_string, $message_args, $message_type);
   }
 }

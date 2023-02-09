@@ -2,7 +2,7 @@ services:
   jmeter_boot_manager:
     class: "\\Drupal\\custom_jmeter_boot_manager\\Service\\JmeterBootManagerService"
     arguments:
-      # - "@current_user"
+      - "@current_user"
       - "@file_system"
-      # - "@messenger"
-      # - "@string_translation"
+      - "@messenger"
+      - "@string_translation"
