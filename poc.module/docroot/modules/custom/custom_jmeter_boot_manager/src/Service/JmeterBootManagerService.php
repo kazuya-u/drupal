@@ -107,6 +107,29 @@ class JmeterBootManagerService {
   }
 
   /**
+   * Prepare directory.
+   */
+  public function prepareDirectory(): void
+  {
+    foreach (self::SAVE_DIRECTORIES as $uri) {
+      $this->fileSystem->prepareDirectory($uri, FileSystemInterface::CREATE_DIRECTORY);
+    }
+  }
+  /**
+   * Installation.
+   */
+  public function installation():void {
+    $this->prepareDirectory();
+  }
+
+  /**
+   * Clean-up directory.
+   */
+  public function cleanUpDirectory(): void {
+    $this->fileSystem->deleteRecursive(self::SAVE_BASE_DIRECTORY);
+  }
+
+  /**
    * File exists.
    */
   public function fileExists(string $type, string $server_name): bool {
