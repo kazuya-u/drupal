@@ -48,6 +48,9 @@ class JmeterBootManagerForm extends FormBase {
     return 'jmeter_boot_manager';
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
     foreach ($this->JmeterBootManagerService->getServers() as $jmeter) {

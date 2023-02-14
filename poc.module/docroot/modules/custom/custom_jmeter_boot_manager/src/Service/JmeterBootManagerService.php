@@ -2,6 +2,8 @@
 
 namespace Drupal\custom_jmeter_boot_manager\Service;
 
+use DateTime;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
@@ -17,6 +19,12 @@ class JmeterBootManagerService {
    * @var int
    */
   const NUMBR_OF_JMETER_SERVERS = 2;
+
+  /**
+   * The Server Shutdown Time.
+   * @var int
+   */
+  const SERVER_SHUTDOWN_TIME = 12;
 
   /**
    * The Save Base Directory.
@@ -102,7 +110,7 @@ class JmeterBootManagerService {
   /**
    * Get Jmeter Server.
    */
-  public function getServers(): array {
+  public static function getServers(): array {
     return array_map(fn ($i) => sprintf('jmeter%02d', $i), range(1, self::NUMBR_OF_JMETER_SERVERS));
   }
 
@@ -116,6 +124,13 @@ class JmeterBootManagerService {
     }
   }
   /**
+   * Clean-up directory.
+   *
+   */
+  public function cleanUpDirectory($path): void {
+    $this->fileSystem->deleteRecursive($path);
+  }
+  /**
    * Installation.
    */
   public function installation():void {
@@ -125,14 +140,21 @@ class JmeterBootManagerService {
   /**
    * Clean-up directory.
    */
-  public function cleanUpDirectory(): void {
-    $this->fileSystem->deleteRecursive(self::SAVE_BASE_DIRECTORY);
+  public function uninstallation(): void {
+    $this->cleanUpDirectory(self::SAVE_BASE_DIRECTORY);
   }
+
+  // /**
+  //  * Clean-up action directory.
+  //  */
+  // public function cleanUpAction(): void {
+  //   $this->cleanUpDirectory(self::SAVE_DIRECTORIES['action']);
+  // }
 
   /**
    * File exists.
    */
-  public function fileExists(string $type, string $server_name): bool {
+  public static function fileExists(string $type, string $server_name): bool {
     if (!empty(self::SAVE_DIRECTORIES[$type])) {
       return file_exists(self::SAVE_DIRECTORIES[$type] . $server_name . self::FILE_EXTENSION);
     }
@@ -142,8 +164,8 @@ class JmeterBootManagerService {
   /**
    * Exists action.
    */
-  public function actionExists(string $server_name): bool {
-    return $this->fileExists('action', $server_name);
+  public static function actionExists(string $server_name): bool {
+    return self::fileExists('action', $server_name);
   }
 
   /**
@@ -194,15 +216,49 @@ class JmeterBootManagerService {
   /**
    * Delete file.
    */
-  public function deleteFile(string $type, string $server_name) {
-    return $this->fileSystem->delete(self::SAVE_DIRECTORIES[$type] . $server_name . self::FILE_EXTENSION) ? TRUE : FALSE;
+  public static function deleteFile(string $type, string $server_name): bool {
+    return \Drupal::service('file_system')->delete(self::SAVE_DIRECTORIES[$type] . $server_name . self::FILE_EXTENSION) ? TRUE : FALSE;
   }
 
   /**
    * Delete action.
    */
-  public function deleteAction(string $server_name) {
-    return $this->deleteFile('action', $server_name);
+  public static function deleteAction(string $server_name) {
+    return self::deleteFile('action', $server_name);
+  }
+
+
+  /**
+   * Get createtime.
+   */
+  public static function getCreatetime(string $type, string $server_name): string{
+    if (self::fileExists($type, $server_name)) {
+      return @filectime(self::SAVE_DIRECTORIES[$type] . $server_name . self::FILE_EXTENSION) ?: '';
+    }
+    return '';
+  }
+
+  // /**
+  //  * Get Actiontime.
+  //  */
+  // public static function getActionCreate(string $server_name): string {
+  //   return self::getCreatetime('action', $server_name);
+  // }
+
+  /**
+   * Get Actiontime.
+   */
+  public static function getActionCreate(string $server_name): DateTime {
+    $create_time = self::getCreatetime('action', $server_name);
+    return (new DateTime())->setTimestamp($create_time);
+  }
+
+  /**
+   * Flag for server downtime elapse.
+   */
+  public function flagDownTime(string $server_name): bool {
+    $current_time = new DrupalDateTime('now');
+    return $current_time->diff(self::getActionCreate($server_name))->h > 12 ? TRUE : FALSE;
   }
 
   /**
