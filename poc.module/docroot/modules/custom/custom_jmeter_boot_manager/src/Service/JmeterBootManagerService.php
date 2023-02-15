@@ -24,7 +24,7 @@ class JmeterBootManagerService {
    * The Server Shutdown Time.
    * @var int
    */
-  const SERVER_SHUTDOWN_TIME = 12;
+  const SERVER_SHUTDOWN_TIME = 1;
 
   /**
    * The Save Base Directory.
@@ -144,13 +144,6 @@ class JmeterBootManagerService {
     $this->cleanUpDirectory(self::SAVE_BASE_DIRECTORY);
   }
 
-  // /**
-  //  * Clean-up action directory.
-  //  */
-  // public function cleanUpAction(): void {
-  //   $this->cleanUpDirectory(self::SAVE_DIRECTORIES['action']);
-  // }
-
   /**
    * File exists.
    */
@@ -238,27 +231,26 @@ class JmeterBootManagerService {
     return '';
   }
 
-  // /**
-  //  * Get Actiontime.
-  //  */
-  // public static function getActionCreate(string $server_name): string {
-  //   return self::getCreatetime('action', $server_name);
-  // }
-
   /**
    * Get Actiontime.
    */
-  public static function getActionCreate(string $server_name): DateTime {
-    $create_time = self::getCreatetime('action', $server_name);
-    return (new DateTime())->setTimestamp($create_time);
+  public static function getActionCreate(string $server_name): DateTime|string{
+    $create_time = self::getCreatetime('action', $server_name) ?: '';
+    if ($create_time !== '') {
+      return (new DateTime())->setTimestamp($create_time);
+    };
+    return '';
   }
 
   /**
    * Flag for server downtime elapse.
    */
-  public function flagDownTime(string $server_name): bool {
+  public static function downTimeFlag(string $server_name): bool {
     $current_time = new DrupalDateTime('now');
-    return $current_time->diff(self::getActionCreate($server_name))->h > 12 ? TRUE : FALSE;
+    if (self::getActionCreate(($server_name)) !== '') {
+      return $current_time->diff(self::getActionCreate($server_name))->h > self::SERVER_SHUTDOWN_TIME ? TRUE : FALSE;
+    }
+    return FALSE;
   }
 
   /**
