@@ -2,7 +2,6 @@
 
 namespace Drupal\custom_jmeter_boot_manager\Service;
 
-use DateTime;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Messenger\MessengerInterface;
@@ -16,15 +15,17 @@ class JmeterBootManagerService {
 
   /**
    * The Number of Jmeter Service.
+   *
    * @var int
    */
   const NUMBR_OF_JMETER_SERVERS = 2;
 
   /**
    * The Server Shutdown Time.
+   *
    * @var int
    */
-  const SERVER_SHUTDOWN_TIME = 1;
+  const SERVER_SHUTDOWN_TIME = 12;
 
   /**
    * The Save Base Directory.
@@ -52,6 +53,7 @@ class JmeterBootManagerService {
 
   /**
    * Timezone.
+   *
    * @var string
    */
   const TIMEZONE = 'Asia/Tokyo';
@@ -85,15 +87,16 @@ class JmeterBootManagerService {
   public $translationManager;
 
   /**
+   * Constructs.
    *
    * @param \Drupal\Core\Session\AccountProxyInterface $current_user
-   *  The current user.
+   *   The current user.
    * @param \Drupal\Core\File\FileSystemInterface $file_system
    *   The file system.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
-   *  The messenger.
+   *   The messenger.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
-   *  The string translation.
+   *   The string translation.
    */
   public function __construct(
     AccountProxyInterface $current_user,
@@ -117,19 +120,19 @@ class JmeterBootManagerService {
   /**
    * Prepare directory.
    */
-  public function prepareDirectory(): void
-  {
+  public function prepareDirectory(): void {
     foreach (self::SAVE_DIRECTORIES as $uri) {
       $this->fileSystem->prepareDirectory($uri, FileSystemInterface::CREATE_DIRECTORY);
     }
   }
+
   /**
    * Clean-up directory.
-   *
    */
   public function cleanUpDirectory($path): void {
     $this->fileSystem->deleteRecursive($path);
   }
+
   /**
    * Installation.
    */
@@ -220,11 +223,10 @@ class JmeterBootManagerService {
     return self::deleteFile('action', $server_name);
   }
 
-
   /**
    * Get createtime.
    */
-  public static function getCreatetime(string $type, string $server_name): string{
+  public static function getCreatetime(string $type, string $server_name): string {
     if (self::fileExists($type, $server_name)) {
       return @filectime(self::SAVE_DIRECTORIES[$type] . $server_name . self::FILE_EXTENSION) ?: '';
     }
@@ -234,10 +236,10 @@ class JmeterBootManagerService {
   /**
    * Get Actiontime.
    */
-  public static function getActionCreate(string $server_name): DateTime|string{
+  public static function getActionCreate(string $server_name): \DateTime|string {
     $create_time = self::getCreatetime('action', $server_name) ?: '';
     if ($create_time !== '') {
-      return (new DateTime())->setTimestamp($create_time);
+      return (new \DateTime())->setTimestamp($create_time);
     };
     return '';
   }
@@ -259,4 +261,5 @@ class JmeterBootManagerService {
   public function messenger($message, array $args = [], $type = MessengerInterface::TYPE_STATUS): MessengerInterface {
     return $this->messenger->addMessage($this->translationManager->translate(ucfirst(strip_tags($message)), $args), $type);
   }
+
 }
