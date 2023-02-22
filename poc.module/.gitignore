@@ -1,5 +1,0 @@
-# <LANDO>
-.lando.*
-.vscode
-/tmp/*
-# </LANDO>
