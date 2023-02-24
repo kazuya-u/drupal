@@ -2,6 +2,7 @@
 /.vscode
 
 **/_data/aws/*.sql
+**/vendor/
 **/files/
 **/sites/*/files/
 **/sites/*/private/
