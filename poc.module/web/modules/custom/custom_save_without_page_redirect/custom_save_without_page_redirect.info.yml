@@ -1,0 +1,3 @@
+name: "save_without_page_redirect"
+type: "module"
+core_version_requirement: "^9 || ^10"
