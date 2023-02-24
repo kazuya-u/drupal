@@ -825,3 +825,10 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_MiOIOU3pj2_xOykAOX-vaVqfyRjwjaY0lq4km_di8jEepjnsgHoQA-cN2F_qlGurGhFKyj3jLw/sync';
+
+/**
+ * Load local development override configuration, if available.
+ */
+if (file_exists(__DIR__ . '/sites.local.php')) {
+  include __DIR__ . '/sites.local.php';
+}

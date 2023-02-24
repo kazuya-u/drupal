@@ -2,9 +2,9 @@
 /.vscode
 
 **/_data/aws/*.sql
-**/docroot/files/
-**/docroot/sites/*/files/
-**/docroot/sites/*/private/
+**/files/
+**/sites/*/files/
+**/sites/*/private/
 **/files-private/*
 !/files-private/.htaccess
 **/settings.local.php
