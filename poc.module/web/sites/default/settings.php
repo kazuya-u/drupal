@@ -825,4 +825,5 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_mAryj6zGcvJi8fzD7yzLqHbQ9vULMip6eh9ESzojMW7WWeq0s0QCyAWD2LwtbmV7R7HWHmmDbQ/sync';
+// $settings['config_sync_directory'] = 'sites/default/files/config_mAryj6zGcvJi8fzD7yzLqHbQ9vULMip6eh9ESzojMW7WWeq0s0QCyAWD2LwtbmV7R7HWHmmDbQ/sync';
+$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config/default';
