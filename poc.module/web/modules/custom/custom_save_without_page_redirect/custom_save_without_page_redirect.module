@@ -2,6 +2,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -9,11 +10,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 */
 
 function custom_save_without_page_redirect_entity_insert(EntityInterface $entity) {
+  if (!$entity instanceof NodeInterface) return;
   $redirect_path = '/';
   $redirect_url = Url::fromUserInput($redirect_path)->toString();
   $redirect_response = new RedirectResponse($redirect_url);
   kint($redirect_response);
-  exit;
   $redirect_response->send();
 }
 
