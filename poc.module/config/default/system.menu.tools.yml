@@ -1,0 +1,10 @@
+uuid: 1882158b-2af5-48c2-85f0-1b956cb140cb
+langcode: ja
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BCM-vV1zzRaLHN18dqAR_CuGOj8AFJvTx7BKl_8Gcxc
+id: tools
+label: ツール
+description: モジュールなどで追加されたユーザーツールリンク
+locked: true

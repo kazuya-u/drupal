@@ -1,0 +1,13 @@
+uuid: 068750b5-9bde-40af-96f8-af47c04ce1cf
+langcode: ja
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jonvgt3CkUM2eMLTFwWfHileWWDC4YtXCuIlCahTk_I
+id: personal
+label: パーソナルコンタクトフォーム
+recipients: {  }
+reply: ''
+weight: 0
+message: メッセージは送信されました
+redirect: ''
