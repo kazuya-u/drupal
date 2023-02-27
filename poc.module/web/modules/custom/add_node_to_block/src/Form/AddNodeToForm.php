@@ -46,8 +46,7 @@ class AddNodeToForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     $hoge = $form_state->getValues();
     $title = $hoge['title'];
     $body = $hoge['text'];

@@ -21,9 +21,16 @@ class BlockForm extends BlockBase {
   public function build() {
     $config = $this->getConfiguration();
     $name = isset($config['name']) ? $config['name'] : 'word';
+    // kint($config);
+    // exit;
     return [
-      '#type' => 'markup',
-      '#markup' => $name,
+      '#type' => 'fieldset',
+      '#title' => $config['label'],
+      'umeki' => [
+        '#title' => 'umeki',
+        '#type' => 'markup',
+        '#markup' => $name,
+      ],
     ];
   }
 
@@ -36,8 +43,9 @@ class BlockForm extends BlockBase {
     $form['name'] = [
       '#type' => 'textfield',
       '#title' => t('Name'),
-      '#description' => $this->t('好きな文を入力してください'),
-      '#default_value' => isset($config['name']) ? $config['name'] : '',
+      '#description' => $this->t('好きな文字を入力してください'),
+      // '#defalut_value' => $config['name'] ?: '',
+      '#defalut_value' => isset($config['name']) ? $config['name'] : '',
     ];
     return $form;
   }
@@ -47,6 +55,7 @@ class BlockForm extends BlockBase {
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['name'] = $form_state->getValue('name');
+    $this->configuration['umeki'] = 'umeume';
   }
 
 }
