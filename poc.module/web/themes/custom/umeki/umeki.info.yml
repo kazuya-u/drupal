@@ -1,0 +1,6 @@
+name: umeki
+type: theme
+base theme: olivero
+description: 'The olivero base theme from Drupal 8/9 moved to contrib.'
+# version: VERSION
+core_version_requirement: ^9 || ^10
