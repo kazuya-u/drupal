@@ -1,0 +1,8 @@
+custom.user-edit-email:
+  path: '/user/{user}/settings/edit-email'
+  defaults:
+    _entity_form: user.edit_email
+    _title: 'Account Information'
+  # requirements:
+  #   _entity_access: 'user.update'
+  #   user: \d+
