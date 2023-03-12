@@ -8,5 +8,6 @@
  * Implements hook_entity_type_build().
  */
 function display_custom_form_mode_entity_type_build(array &$entity_types) {
-  $entity_types['user']->setFormClass('edit_email', 'Drupal\user\ProfileForm');
+  $entity_types['user']->setFormClass('edit_mail', 'Drupal\user\ProfileForm');
+  // $entity_types['node']->setFormClass('custom01', 'Drupal\node\NodeForm');
 }
