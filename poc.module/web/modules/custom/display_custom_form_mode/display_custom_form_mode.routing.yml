@@ -6,8 +6,10 @@ custom.user-edit-email:
   requirements:
     _entity_access: 'user.update'
   #   user: \d+
-# custom.edit-story:
-#   path: '/node/{node}/custom/form'
-#   defaults:
-#     _entity_form: node.custom01
-#     _title: 'Node Form'
+custom.edit-story:
+  path: '/node/{node}/custom/form'
+  defaults:
+    _entity_form: node.edit_node
+    _title: 'Node Form'
+  requirements:
+    _entity_access: 'node.update'
