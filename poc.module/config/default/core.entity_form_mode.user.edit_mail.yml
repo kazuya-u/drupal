@@ -1,0 +1,10 @@
+uuid: 662491b7-f69a-4710-8e31-fd7869589948
+langcode: ja
+status: true
+dependencies:
+  module:
+    - user
+id: user.edit_mail
+label: edit_mail
+targetEntityType: user
+cache: true

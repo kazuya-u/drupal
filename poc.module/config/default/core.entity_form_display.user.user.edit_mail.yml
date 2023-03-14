@@ -1,0 +1,32 @@
+uuid: 0dc0f4ee-9ed3-4d0b-a0dd-5427b88fddd3
+langcode: ja
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.edit_mail
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
+id: user.user.edit_mail
+targetEntityType: user
+bundle: user
+mode: edit_mail
+content:
+  user_picture:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  account: true
+  contact: true
+  langcode: true
+  language: true
+  timezone: true

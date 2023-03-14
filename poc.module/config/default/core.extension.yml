@@ -14,6 +14,9 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  devel_kint_extras: 0
+  display_custom_form_mode: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
