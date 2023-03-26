@@ -1,0 +1,12 @@
+uuid: a5d067c9-8549-48e8-ad11-fc0b8d8bd91c
+langcode: ja
+status: false
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: ElrtInxGjZd7GaapJ5O9n-ugi2hG2IxFivtgn0tHOsk
+id: node.full
+label: 全文
+targetEntityType: node
+cache: true
