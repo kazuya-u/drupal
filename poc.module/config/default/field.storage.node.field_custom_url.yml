@@ -1,0 +1,19 @@
+uuid: f088dd05-6607-415c-a5e0-14942b7cb9d4
+langcode: ja
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_custom_url
+field_name: field_custom_url
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_custom_url
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.wide
@@ -13,6 +14,7 @@ dependencies:
   module:
     - comment
     - image
+    - link
     - text
     - user
 _core:
@@ -37,6 +39,18 @@ content:
       pager_id: 0
     third_party_settings: {  }
     weight: 110
+    region: content
+  field_custom_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 111
     region: content
   field_image:
     type: image
