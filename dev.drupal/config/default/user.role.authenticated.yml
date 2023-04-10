@@ -1,0 +1,20 @@
+uuid: f4ae8f9e-40c4-4ce1-8cae-9820b7f52aeb
+langcode: ja
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - filter
+    - search
+    - system
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 認証済みユーザー
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use text format basic_html'

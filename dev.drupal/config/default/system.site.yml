@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: ja
+uuid: e8ea9ee9-6317-4368-8a5f-8a8a09aa5af9
+name: dev.drupal
+mail: umeki@mochiya.co
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: ja

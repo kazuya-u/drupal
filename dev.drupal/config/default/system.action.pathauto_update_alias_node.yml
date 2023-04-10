@@ -1,0 +1,16 @@
+uuid: d0ab25fd-3199-4ef6-9665-bc8edfba37dc
+langcode: ja
+status: true
+dependencies:
+  module:
+    - pathauto
+  enforced:
+    module:
+      - node
+_core:
+  default_config_hash: lno8QThS348UX-kaUsagJtCnuPHKLXYnTQiF_9HSDWA
+id: pathauto_update_alias_node
+label: URLエイリアスを更新
+type: node
+plugin: pathauto_update_alias
+configuration: {  }
