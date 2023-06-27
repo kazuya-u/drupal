@@ -59,35 +59,35 @@
     "extra": {
         "drupal-scaffold": {
             "locations": {
-                "web-root": "docroot/"
+                "web-root": "web/"
             }
         },
         "installer-paths": {
-            "docroot/core": [
+            "web/core": [
                 "type:drupal-core"
             ],
-            "docroot/libraries/{$name}": [
+            "web/libraries/{$name}": [
                 "type:drupal-library"
             ],
-            "docroot/modules/contrib/{$name}": [
+            "web/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
-            "docroot/profiles/contrib/{$name}": [
+            "web/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "docroot/themes/contrib/{$name}": [
+            "web/themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
             "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ],
-            "docroot/modules/custom/{$name}": [
+            "web/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "docroot/profiles/custom/{$name}": [
+            "web/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
             ],
-            "docroot/themes/custom/{$name}": [
+            "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
         },
