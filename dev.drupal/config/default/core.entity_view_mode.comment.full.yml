@@ -1,0 +1,12 @@
+uuid: 67e932fd-5634-44fc-a2a9-f9fb4718c36a
+langcode: ja
+status: false
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: K7eNlfU7NEUajz01wItywZklr2oaPgL6s1_97fmDXLA
+id: comment.full
+label: コメント全文
+targetEntityType: comment
+cache: true

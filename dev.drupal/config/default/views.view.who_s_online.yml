@@ -1,4 +1,4 @@
-uuid: 3654d49e-3fa0-4b9c-82ba-56490f60a636
+uuid: daff8523-28cb-4eaf-90d6-dcaa0c0c0c6c
 langcode: ja
 status: true
 dependencies:
@@ -66,11 +66,11 @@ display:
         options:
           submit_button: 適用
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: リセット
+          exposed_sorts_label: 並び替え基準
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: 昇順
+          sort_desc_label: 降順
       access:
         type: perm
         options:

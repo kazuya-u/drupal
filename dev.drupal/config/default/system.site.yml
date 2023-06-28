@@ -1,8 +1,8 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: ja
-uuid: e8ea9ee9-6317-4368-8a5f-8a8a09aa5af9
-name: dev.drupal
+uuid: 530bb7b0-d63e-4231-bd70-39f0a23dcbe2
+name: Drupal.PoC
 mail: umeki@mochiya.co
 slogan: ''
 page:

@@ -1,4 +1,4 @@
-uuid: e8d70916-627e-4eac-88de-1692e8278916
+uuid: 99e8e57a-56b3-442a-926b-5bc1d575076e
 langcode: ja
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: vBKWYGGDoAX-tFd1JErB8tZLSxx3lJ0foouVsgpcbB4
 id: content
-label: Content
+label: コンテンツ
 module: node
 description: コンテンツの検索と管理。
 tag: default
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Content
+      title: コンテンツ
       fields:
         node_bulk_form:
           id: node_bulk_form
@@ -249,13 +249,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: フィルター
           reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: リセット
+          exposed_sorts_label: 並び替え基準
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: 昇順
+          sort_desc_label: 降順
       access:
         type: perm
         options:
@@ -585,7 +585,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Page
+    display_title: ページ
     display_plugin: page
     position: 1
     display_options:
@@ -593,14 +593,14 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: Content
+        title: コンテンツ
         description: ''
         weight: -10
         menu_name: admin
         context: ''
       tab_options:
         type: normal
-        title: Content
+        title: コンテンツ
         description: コンテンツの検索と管理
         weight: -10
         menu_name: admin

@@ -1,4 +1,4 @@
-uuid: 8b600b4c-9dca-461b-ab8f-369c1cb29b0b
+uuid: 1903f92c-b626-44a6-b26f-862697d5452e
 langcode: ja
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: 97tvtzGOa8_flb22CzSjgtm_YkiGMHvEBO-6q2K9V_U
 id: node_search
-label: Content
+label: コンテンツ
 path: node
 weight: -10
 plugin: node_search
