@@ -1,9 +1,0 @@
-uuid: 4d4bf4a4-9787-4531-97f9-0877ac232274
-langcode: ja
-status: true
-dependencies: {  }
-id: ja
-label: Japanese
-direction: ltr
-weight: 0
-locked: false
