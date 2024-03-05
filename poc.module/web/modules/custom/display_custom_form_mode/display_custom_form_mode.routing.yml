@@ -1,0 +1,15 @@
+custom.user-edit-email:
+  path: '/user/{user}/settings/edit-email'
+  defaults:
+    _entity_form: user.edit_mail
+    _title: 'Account Information'
+  requirements:
+    _entity_access: 'user.update'
+  #   user: \d+
+custom.edit-story:
+  path: '/node/{node}/custom/form'
+  defaults:
+    _entity_form: node.edit_node
+    _title: 'Node Form'
+  requirements:
+    _entity_access: 'node.update'

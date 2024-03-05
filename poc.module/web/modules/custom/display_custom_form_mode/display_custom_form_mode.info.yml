@@ -1,0 +1,3 @@
+name: "Display_form_mode"
+type: "module"
+core_version_requirement: "^9 || ^10"

@@ -1,0 +1,13 @@
+uuid: bdab9ed6-c0bf-4c55-8848-62a91778f2d6
+langcode: ja
+status: true
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: C00dyL_W_5M0nFlgUB3lWUTUs96jn51Jw1MLHVEHZD0
+id: comment_publish_action
+label: コメントを公開する
+type: comment
+plugin: 'entity:publish_action:comment'
+configuration: {  }
