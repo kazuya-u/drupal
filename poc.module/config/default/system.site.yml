@@ -1,7 +1,11 @@
 _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: ja
+<<<<<<< HEAD
 uuid: 294548c1-8dcd-47b6-b188-16a9d84bc210
+=======
+uuid: 465a3c0f-7949-4838-bcbb-6449fee1ec71
+>>>>>>> origin/feature/add_node_to_block
 name: poc.module
 mail: umeki@mochiya.co
 slogan: ''

@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 uuid: 484b36cd-ede3-4024-80a9-630ab62982e0
+=======
+uuid: 4a9915c3-d0e9-4733-a94c-d0927c7bdce0
+>>>>>>> origin/feature/add_node_to_block
 langcode: ja
 status: true
 dependencies:
   config:
     - field.field.node.article.body
     - field.field.node.article.comment
+<<<<<<< HEAD
     - field.field.node.article.field_custom_url
+=======
+>>>>>>> origin/feature/add_node_to_block
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.thumbnail
@@ -13,7 +20,10 @@ dependencies:
   module:
     - comment
     - image
+<<<<<<< HEAD
     - link
+=======
+>>>>>>> origin/feature/add_node_to_block
     - path
     - text
 _core:
@@ -45,6 +55,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+<<<<<<< HEAD
   field_custom_url:
     type: link_default
     weight: 121
@@ -53,6 +64,8 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+=======
+>>>>>>> origin/feature/add_node_to_block
   field_image:
     type: image_image
     weight: 1

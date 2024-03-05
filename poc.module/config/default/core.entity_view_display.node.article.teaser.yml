@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 91a11711-7c46-424e-8f56-db1d1c572404
+=======
+uuid: 9bd68e9c-5997-4bb7-9ad5-555eb47f2ec7
+>>>>>>> origin/feature/add_node_to_block
 langcode: ja
 status: true
 dependencies:
@@ -6,7 +10,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
     - field.field.node.article.comment
+<<<<<<< HEAD
     - field.field.node.article.field_custom_url
+=======
+>>>>>>> origin/feature/add_node_to_block
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.medium
@@ -54,7 +61,10 @@ content:
     region: content
 hidden:
   comment: true
+<<<<<<< HEAD
   field_custom_url: true
+=======
+>>>>>>> origin/feature/add_node_to_block
   field_image: true
   field_tags: true
   langcode: true

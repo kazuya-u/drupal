@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: d6791bed-6254-4c68-a17e-56ed2cf950ac
+=======
+uuid: fa353d82-1d60-41b6-8d89-f48adf65b833
+>>>>>>> origin/feature/add_node_to_block
 langcode: ja
 status: true
 dependencies:

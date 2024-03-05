@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 uuid: 6e2b07ad-19f9-455e-ae15-ec4bf79052d3
+=======
+uuid: a6b8d592-4ca7-40b1-b361-0f91d42f3102
+>>>>>>> origin/feature/add_node_to_block
 langcode: ja
 status: true
 dependencies:
@@ -6,7 +10,10 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.article.body
     - field.field.node.article.comment
+<<<<<<< HEAD
     - field.field.node.article.field_custom_url
+=======
+>>>>>>> origin/feature/add_node_to_block
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.wide
@@ -14,7 +21,10 @@ dependencies:
   module:
     - comment
     - image
+<<<<<<< HEAD
     - link
+=======
+>>>>>>> origin/feature/add_node_to_block
     - text
     - user
 _core:
@@ -40,6 +50,7 @@ content:
     third_party_settings: {  }
     weight: 110
     region: content
+<<<<<<< HEAD
   field_custom_url:
     type: link
     label: above
@@ -52,6 +63,8 @@ content:
     third_party_settings: {  }
     weight: 111
     region: content
+=======
+>>>>>>> origin/feature/add_node_to_block
   field_image:
     type: image
     label: hidden
