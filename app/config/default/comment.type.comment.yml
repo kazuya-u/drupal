@@ -1,0 +1,10 @@
+uuid: caaf1922-e7f5-479c-a232-83be138445e8
+langcode: ja
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bqZsN31T2n0UjcbyCpOPi9D2iO0sAOHR7FnEs9qMvaA
+id: comment
+label: デフォルトのコメント
+target_entity_type_id: node
+description: コンテンツへのコメントを許可

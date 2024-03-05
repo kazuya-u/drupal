@@ -1,0 +1,14 @@
+uuid: 5d7538df-a214-4f77-973e-fa0c263d44ee
+langcode: ja
+status: true
+dependencies:
+  module:
+    - help
+_core:
+  default_config_hash: RZ-bcSekNSsAbIPLW7Gmyd3uUjIOSrPvnb8RCCZYJm8
+id: help_search
+label: ヘルプ
+path: help
+weight: 0
+plugin: help_search
+configuration: {  }
