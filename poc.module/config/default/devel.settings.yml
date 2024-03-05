@@ -8,6 +8,10 @@ error_handlers:
 rebuild_theme: false
 debug_mail_file_format: '%to-%subject-%datetime.mail.txt'
 debug_mail_directory: 'temporary://devel-mails'
+<<<<<<< HEAD
 devel_dumper: kint
+=======
+devel_dumper: var_dumper
+>>>>>>> feature/save_without_page_redirect
 debug_logfile: 'temporary://drupal_debug.txt'
 debug_pre: true

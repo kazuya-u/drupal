@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 uuid: 484b36cd-ede3-4024-80a9-630ab62982e0
 =======
 uuid: 4a9915c3-d0e9-4733-a94c-d0927c7bdce0
 >>>>>>> origin/feature/add_node_to_block
+=======
+uuid: 4a9915c3-d0e9-4733-a94c-d0927c7bdce0
+>>>>>>> feature/save_without_page_redirect
 langcode: ja
 status: true
 dependencies:
@@ -10,9 +14,12 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.comment
 <<<<<<< HEAD
+<<<<<<< HEAD
     - field.field.node.article.field_custom_url
 =======
 >>>>>>> origin/feature/add_node_to_block
+=======
+>>>>>>> feature/save_without_page_redirect
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.thumbnail
@@ -21,9 +28,12 @@ dependencies:
     - comment
     - image
 <<<<<<< HEAD
+<<<<<<< HEAD
     - link
 =======
 >>>>>>> origin/feature/add_node_to_block
+=======
+>>>>>>> feature/save_without_page_redirect
     - path
     - text
 _core:
@@ -56,6 +66,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 <<<<<<< HEAD
+<<<<<<< HEAD
   field_custom_url:
     type: link_default
     weight: 121
@@ -66,6 +77,8 @@ content:
     third_party_settings: {  }
 =======
 >>>>>>> origin/feature/add_node_to_block
+=======
+>>>>>>> feature/save_without_page_redirect
   field_image:
     type: image_image
     weight: 1

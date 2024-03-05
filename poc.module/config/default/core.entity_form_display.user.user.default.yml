@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 uuid: 118dc442-b47d-4721-bb74-756d4dc92ea2
 =======
 uuid: e122a136-9fc8-451b-b912-bd25d46ac837
 >>>>>>> origin/feature/add_node_to_block
+=======
+uuid: e122a136-9fc8-451b-b912-bd25d46ac837
+>>>>>>> feature/save_without_page_redirect
 langcode: ja
 status: true
 dependencies:
@@ -23,6 +27,7 @@ content:
     weight: -10
     region: content
 <<<<<<< HEAD
+<<<<<<< HEAD
     settings: {  }
     third_party_settings: {  }
   contact:
@@ -41,6 +46,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 =======
+=======
+>>>>>>> feature/save_without_page_redirect
   contact:
     weight: 5
     region: content
@@ -50,7 +57,10 @@ content:
   timezone:
     weight: 6
     region: content
+<<<<<<< HEAD
 >>>>>>> origin/feature/add_node_to_block
+=======
+>>>>>>> feature/save_without_page_redirect
   user_picture:
     type: image_image
     weight: -1

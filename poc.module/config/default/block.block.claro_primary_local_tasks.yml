@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 uuid: f1124885-8ee8-4e7c-9111-38e206c70bb9
 =======
 uuid: 433f58c0-07ff-4083-8b66-28de77546924
 >>>>>>> origin/feature/add_node_to_block
+=======
+uuid: 433f58c0-07ff-4083-8b66-28de77546924
+>>>>>>> feature/save_without_page_redirect
 langcode: ja
 status: true
 dependencies:
