@@ -1,0 +1,7 @@
+modal-asset:
+  version: 1.x
+  css:
+    theme:
+      css/modal.css: {}
+  js:
+    js/modal.js: {}
