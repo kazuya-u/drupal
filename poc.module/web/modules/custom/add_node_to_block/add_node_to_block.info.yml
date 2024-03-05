@@ -1,3 +1,0 @@
-name: "add_node_to_block"
-type: "module"
-core_version_requirement: "^9 || ^10"

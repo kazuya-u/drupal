@@ -1,2 +1,0 @@
-null
-"allow_node_access_for_role"

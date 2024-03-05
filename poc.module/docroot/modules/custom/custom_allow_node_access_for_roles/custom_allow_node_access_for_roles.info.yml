@@ -1,5 +1,0 @@
-name: "Custom Allow Node Access for Roles."
-description: "Provides the ability to allow node access only to users with authorized roles."
-type: "module"
-package: "Custom Module"
-core_version_requirement: "^9.4 ||^10"

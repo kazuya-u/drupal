@@ -1,9 +1,0 @@
-jmeter_boot_manager.form:
-  path: "/admin/config/development/jmeter_boot_manager"
-  defaults:
-    _form: "\\Drupal\\custom_jmeter_boot_manager\\Form\\JmeterBootManagerForm"
-    _title: "Jmeter Boot Manager"
-  requirements:
-    _permission: "access jmeter boot manager form"
-  options:
-    _admin_route: true
