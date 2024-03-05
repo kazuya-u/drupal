@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Custom JMeter Boot Manager Module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function custom_jmeter_boot_manager_install() {
+  \Drupal::service('jmeter_boot_manager')->installation();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function custom_jmeter_boot_manager_uninstall() {
+  \Drupal::service('jmeter_boot_manager')->uninstallation();
+}

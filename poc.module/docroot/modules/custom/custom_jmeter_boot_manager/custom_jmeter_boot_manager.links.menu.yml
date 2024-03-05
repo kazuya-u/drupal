@@ -1,0 +1,4 @@
+jmeter_boot_manager.form:
+  title: "Jmeter Boot Manager"
+  route_name: "jmeter_boot_manager.form"
+  parent: "system.admin_config_development"

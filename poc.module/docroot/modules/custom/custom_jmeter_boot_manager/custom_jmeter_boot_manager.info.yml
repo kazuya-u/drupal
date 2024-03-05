@@ -1,0 +1,5 @@
+name: "Custom Jmeter Boot Manager"
+type: "module"
+description: "Provides a form that allows starting and stopping Jmeter server instances."
+core_version_requirement: "^9.3 || ^10"
+configure: "jmeter_boot_manager.form"
