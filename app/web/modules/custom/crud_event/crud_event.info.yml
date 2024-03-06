@@ -1,0 +1,5 @@
+name: EntityCRUDEventSubscriber
+type: module
+description: 'Dispatches events on entity create, update, delete and preSave.'
+package: Entity
+core_version_requirement: ^10
