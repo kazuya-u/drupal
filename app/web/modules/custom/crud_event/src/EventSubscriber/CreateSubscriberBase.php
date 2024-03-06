@@ -20,7 +20,7 @@ abstract class CreateSubscriberBase implements EventSubscriberInterface {
   }
 
   /**
-   * Method called when entity is create.
+   * Method called when an entity is created.
    *
    * @param \Drupal\crud_event\Event\CRUDEvent $crud_event
    *   The event.
