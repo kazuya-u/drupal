@@ -20,7 +20,7 @@ abstract class PresaveSubscriberBase implements EventSubscriberInterface {
   }
 
   /**
-   * Method called when entity is presave.
+   * Method called when an entity is presaved.
    *
    * @param \Drupal\crud_event\Event\CRUDEvent $crud_event
    *   The event.
