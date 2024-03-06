@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * This module holds functions for entity CRUD events.
+ */
+
+declare(strict_types=1);
+
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\crud_event\CRUD;
+use Drupal\crud_event\Event\CRUDEvent;
+
+/**
+ * Implements hook_entity_insert().
+ *
+ * { @inheritdoc }
+ */
+function crud_event_entity_insert(EntityInterface $entity) {
+  $event_type = CRUD::CREATE;
+  _crud_event_dispatch($event_type, $entity);
+}
+
+/**
+ * Implements hook_entity_load().
+ *
+ * { @inheritdoc }
+ */
+function crud_event_entity_load(array $entities, $entity_type_id) {
+  foreach ($entities as $entity) {
+    $event_type = CRUD::READ;
+    _crud_event_dispatch($event_type, $entity);
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * { @inheritdoc }
+ */
+function crud_event_entity_update(EntityInterface $entity) {
+  $event_type = CRUD::UPDATE;
+  _crud_event_dispatch($event_type, $entity);
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * { @inheritdoc }
+ */
+function crud_event_entity_delete(EntityInterface $entity) {
+  $event_type = CRUD::DELETE;
+  _crud_event_dispatch($event_type, $entity);
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * { @inheritdoc }
+ */
+function crud_event_entity_presave(EntityInterface $entity) {
+  $event_type = CRUD::PRESAVE;
+  _crud_event_dispatch($event_type, $entity);
+}
+
+/**
+ * Helper function to dispatch an event.
+ *
+ * @param string $event_type
+ *   The event type which CRUD.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity to dispatch event.
+ */
+function _crud_event_dispatch($event_type, EntityInterface $entity) {
+
+  // The event.
+  $event = new CRUDEvent($event_type, $entity);
+
+  /**
+   * The EventDispatcher.
+   *
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
+   */
+  $dispatcher = \Drupal::service('event_dispatcher');
+  $dispatcher->dispatch($event, $event_type);
+}
