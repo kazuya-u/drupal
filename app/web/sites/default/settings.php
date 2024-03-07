@@ -910,11 +910,11 @@ switch (DRUPAL_ROOT) {
  * Exclude modules from configuration synchronization.
  */
 $settings['config_exclude_modules'] = [
-  # Core.
+  // Core.
   'dblog',
   'update',
 
-  # Contrib.
+  // Contrib.
   'devel_kint_extras',
   'devel',
   'mail_safety',
