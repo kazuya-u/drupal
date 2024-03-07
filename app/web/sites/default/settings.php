@@ -905,3 +905,18 @@ switch (DRUPAL_ROOT) {
     break;
 
 }
+
+/**
+ * Exclude modules from configuration synchronization.
+ */
+$settings['config_exclude_modules'] = [
+  # Core.
+  'dblog',
+  'update',
+
+  # Contrib.
+  'devel_kint_extras',
+  'devel',
+  'mail_safety',
+  'performance_profiler',
+];
