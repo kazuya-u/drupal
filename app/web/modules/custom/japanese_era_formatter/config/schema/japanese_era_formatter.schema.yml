@@ -1,0 +1,10 @@
+field.formatter.settings.datetime_japanese_era:
+  type: mapping
+  label: Japanese Era formatter settings
+  mapping:
+    date_format:
+      type: date_format
+      label: 'Date/time format'
+    format:
+      type: format
+      label: 'Format'
