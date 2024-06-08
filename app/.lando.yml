@@ -10,30 +10,7 @@ services:
     ssl: true
     config:
       php: .vscode/php.ini
-    overrides:
-      environment:
-        USE_ACLI: 0
-        USE_PUSH_DB: 0
-        USE_QUERY_LOG: 0
-        XDEBUG_MODE:
-    build_as_root:
-      - if [ -f /user/.lando.utils ]; then bash /user/.lando.utils build_as_root;
   phpmyadmin:
     ssl: true
     type: phpmyadmin
     app_mount: false
-tooling:
-  utils:
-    service: appserver
-    description: Run the Utils command
-    cmd: bash /user/.lando.utils menu
-  query_log:
-    service: database
-    description: MySQL query logs utility.
-    cmd: bash /user/.lando.utils database
-    user: root
-events:
-  post-start:
-    - if [ -f /user/.lando.utils ]; then bash /user/.lando.utils post-start; fi
-  pre-destroy:
-    - if [ -f /user/.lando.utils ]; then bash /user/.lando.utils pre-destroy; fi
