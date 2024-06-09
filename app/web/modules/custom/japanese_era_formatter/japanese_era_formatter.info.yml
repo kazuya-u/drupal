@@ -1,0 +1,5 @@
+name: 'JapaneseEraFormatter'
+type: module
+description: 'Support the display of the datetime field in the Japanese era.'
+package: 'Field'
+core_version_requirement: ^10
