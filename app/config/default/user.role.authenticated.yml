@@ -1,13 +1,16 @@
-uuid: 2809b8b5-0a3f-4aea-8f8b-dd5321578e30
+uuid: 0e5a2977-be47-402d-ba17-13ac59a36558
 langcode: ja
 status: true
 dependencies:
   config:
     - filter.format.basic_html
   module:
+    - comment
+    - contact
     - file
     - filter
     - search
+    - shortcut
     - system
 _core:
   default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
@@ -16,7 +19,12 @@ label: 認証済みユーザー
 weight: 1
 is_admin: false
 permissions:
+  - 'access comments'
   - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
   - 'delete own files'
+  - 'post comments'
   - 'search content'
+  - 'skip comment approval'
   - 'use text format basic_html'

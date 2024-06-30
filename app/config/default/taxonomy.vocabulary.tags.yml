@@ -1,4 +1,4 @@
-uuid: 4df8a09b-ae73-4dd2-84bc-aafd3a34cb0c
+uuid: 3cb83149-a282-4bb7-b259-1bd83d15bef2
 langcode: ja
 status: true
 dependencies: {  }
@@ -8,3 +8,4 @@ name: タグ
 vid: tags
 description: 記事をトピックなどに合わせてグループ化するにはタグを使用してください
 weight: 0
+new_revision: false

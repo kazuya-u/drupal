@@ -1,4 +1,4 @@
-uuid: b1be9366-b884-431a-8e1a-ab25aa2e9846
+uuid: 413ded14-ac08-4a77-b984-32e27c9b0e9b
 langcode: ja
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 name: 基本ページ
 type: page
 description: '「About us」のような、あまり更新されない内容の場合は <em>基本ページ</em> を使ってください。'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false
