@@ -1,4 +1,4 @@
-uuid: 7e304b63-6a44-4dc9-97f0-0fcf15f5437c
+uuid: bf065bdb-2d39-4055-9a9c-02ea95b77910
 langcode: ja
 status: true
 dependencies:
@@ -255,6 +255,7 @@ display:
             previous: '‹ 前'
             first: '« 最初'
             last: '最後 »'
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

@@ -1,4 +1,4 @@
-uuid: 6b906a33-6fac-44ab-b2fd-6ad728a00bed
+uuid: 7de9bbfa-cfa5-4fac-80cd-1747c870a65f
 langcode: ja
 status: true
 dependencies:
@@ -99,7 +99,7 @@ image_upload:
   status: true
   scheme: public
   directory: inline-images
-  max_size: ''
+  max_size: null
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

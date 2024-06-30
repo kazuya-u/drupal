@@ -1,4 +1,4 @@
-uuid: f8ccd04b-e11d-405d-bab4-520670e61b9c
+uuid: b46b2b66-9bbc-49fb-a2b5-39b4c19dd6e1
 langcode: ja
 status: true
 dependencies:
@@ -287,6 +287,7 @@ display:
             items_per_page_options_all_label: '- 全て -'
             offset: false
             offset_label: オフセット
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

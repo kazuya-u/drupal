@@ -17,17 +17,19 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.4",
-        "drupal/core-composer-scaffold": "10.2.4",
-        "drupal/core-project-message": "10.2.4",
-        "drupal/core-recommended": "10.2.4",
+        "drupal/core-composer-scaffold": "10.3.0",
+        "drupal/core-project-message": "10.3.0",
+        "drupal/core-recommended": "10.3.0",
         "drupal/devel_kint_extras": "^1.1",
         "drupal/eck": "^2.0",
+        "drupal/gin": "^3.0@RC",
+        "drupal/japanese_era_formatter": "^1.0",
         "drush/drush": "^12.4"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "RC",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
