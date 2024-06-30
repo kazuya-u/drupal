@@ -26,7 +26,6 @@ The `Views Pager Token` module can be integrated with the ConfigPages Module to 
 
 This setup provides a highly customizable way to control how pagers behave in different Views, making your site more adaptable to varying content types or user preferences.
 
-
 ## Maintainers
 
 - [umekikazuya](https://www.drupal.org/u/umekikazuya)
