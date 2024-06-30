@@ -1,7 +1,7 @@
 name: sandbox
 recipe: drupal10
 config:
-  php: "8.1"
+  php: "8.3"
   via: apache:2.4
   webroot: web
 keys: true
