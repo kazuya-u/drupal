@@ -1,0 +1,22 @@
+uuid: 065f746c-b8f4-4a9f-8605-568f75ef0173
+langcode: ja
+status: true
+dependencies:
+  config:
+    - config_pages.type.pager_settings
+    - field.field.config_pages.pager_settings.field_data_1
+id: config_pages.pager_settings.default
+targetEntityType: config_pages
+bundle: pager_settings
+mode: default
+content:
+  field_data_1:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

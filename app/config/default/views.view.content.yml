@@ -249,13 +249,13 @@ display:
       pager:
         type: full
         options:
+          pagination_heading_level: h4
           items_per_page: 50
           tags:
             next: '次 ›'
             previous: '‹ 前'
             first: '« 最初'
             last: '最後 »'
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
