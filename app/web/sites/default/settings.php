@@ -882,9 +882,18 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 switch (DRUPAL_ROOT) {
   // Lando.
     case '/app/web':
-      if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-        include $app_root . '/' . $site_path . '/settings.local.php';
-      }
+      $databases['default']['default'] = array (
+        'database' => 'drupal10',
+        'username' => 'drupal10',
+        'password' => 'drupal10',
+        'prefix' => '',
+        'host' => 'database',
+        'port' => '3306',
+        'isolation_level' => 'READ COMMITTED',
+        'driver' => 'mysql',
+        'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+        'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+      );
       break;
 
   // Example.
