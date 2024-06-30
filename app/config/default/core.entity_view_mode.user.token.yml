@@ -1,0 +1,11 @@
+uuid: ab571dd3-6eab-47f7-8b40-8008b8805fe1
+langcode: ja
+status: true
+dependencies:
+  module:
+    - user
+id: user.token
+label: トークン
+description: ''
+targetEntityType: user
+cache: true

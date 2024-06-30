@@ -1,0 +1,11 @@
+uuid: 484ed12b-2bc2-4417-b94d-e667e498bff4
+langcode: ja
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.token
+label: トークン
+description: ''
+targetEntityType: block_content
+cache: true

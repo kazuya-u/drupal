@@ -1,0 +1,23 @@
+uuid: 756d9cb8-b0c6-4cdb-ad1e-f0141f6b2e36
+langcode: ja
+status: true
+dependencies:
+  config:
+    - config_pages.type.pager_settings
+    - field.storage.config_pages.field_data_1
+id: config_pages.pager_settings.field_data_1
+field_name: field_data_1
+entity_type: config_pages
+bundle: pager_settings
+label: data_1
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

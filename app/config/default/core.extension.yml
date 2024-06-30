@@ -9,6 +9,7 @@ module:
   breakpoint: 0
   ckeditor5: 0
   config: 0
+  config_pages: 0
   contact: 0
   contextual: 0
   datetime: 0
@@ -37,8 +38,10 @@ module:
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   user: 0
+  views_pager_token: 0
   views_ui: 0
   views: 10
   standard: 1000
