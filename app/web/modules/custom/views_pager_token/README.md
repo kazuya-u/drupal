@@ -1,6 +1,8 @@
 # Views Pager Token module
 
-@todo Add an introduction that summarizes the purpose and function of the project.
+Provides a plugin that allows token input in the Views pager settings.
+
+It provides a highly customizable way to control how the pager behaves in various Views, allowing the site to be more adaptable to different content types and user preferences.
 
 ## Table of contents
 
@@ -12,20 +14,19 @@
 
 ## Requirements
 
-@todo Describe module requirements here.
-
-## Recommended modules
-
-@todo Add recommended modules here if needed.
+- [Token](https://www.drupal.org/project/token)
 
 ## Installation
 
 Install as you would normally install a contributed Drupal module. For further information, see [Installing Drupal Modules](https://www.drupal.org/docs/extending-drupal/installing-drupal-modules).
 
-## Configuration
+## Usage Examples
 
-@todo Describe module configuration here.
+The `Views Pager Token` module can be integrated with the ConfigPages Module to dynamically manage pager settings using tokens. This setup allows for a more flexible and dynamic configuration of Views pagers based on specific conditions or contexts.
+
+This setup provides a highly customizable way to control how pagers behave in different Views, making your site more adaptable to varying content types or user preferences.
+
 
 ## Maintainers
 
-- [YOUR_NAME] - [YOUR_NICKNAME](https://www.drupal.org/u/YOUR_NICKNAME)
+- [umekikazuya](https://www.drupal.org/u/umekikazuya)
