@@ -1,0 +1,7 @@
+views.settings.views_pager_token:
+  type: mapping
+  label: 'Items per page'
+  mapping:
+    limit:
+      type: string
+      label: 'Items per page'
