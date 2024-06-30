@@ -1,6 +1,6 @@
 name: 'Views Pager Token'
 type: module
-description: 'Provides a plugin that allows token input in the Views pager settings.'
+description: 'This module allow to be entered to the Pager settings.'
 package: views
 core_version_requirement: ">=10"
 dependencies:

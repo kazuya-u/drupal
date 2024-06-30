@@ -1,8 +1,8 @@
 # Views Pager Token module
 
-Provides a plugin that allows token input in the Views pager settings.
+Provides a 'Views Pager Plugin' that allows token input in the pager settings.
 
-It provides a highly customizable way to control how the pager behaves in various Views, allowing the site to be more adaptable to different content types and user preferences.
+This feature allows you to customize the number of displays dynamically, site builders and operators can change the number of displays with no code.
 
 ## Table of contents
 
