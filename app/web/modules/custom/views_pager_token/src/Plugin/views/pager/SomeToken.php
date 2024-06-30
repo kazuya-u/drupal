@@ -14,10 +14,7 @@ use Drupal\views\Plugin\views\pager\PagerPluginBase;
  */
 #[ViewsPager(
   id: "some_token",
-  title: new TranslatableMarkup("@title @token", [
-    '@title' => "Display a specified number of items",
-    '@token' => "(Available Token.)",
-  ]),
+  title: new TranslatableMarkup("Display a specified number of items (Available Token)"),
   help: new TranslatableMarkup("Display a limited number items that this view might find."),
   display_types: ["basic"],
 )]
@@ -50,10 +47,7 @@ final class SomeToken extends PagerPluginBase {
     $form['limit'] = [
       '#type' => 'textfield',
       '#title' => $pager_text['items per page title'],
-      '#description' => <<<HTML
-      {$pager_text['items per page description']}<br>
-      Token entry is available for use.
-      HTML,
+      '#description' => $this->t('@description<br>Token entry is available for use.', ['@description' => $pager_text['items per page description']]),
       '#default_value' => $this->options['limit'] ?? '0',
     ];
 
