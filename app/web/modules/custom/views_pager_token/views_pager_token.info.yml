@@ -1,0 +1,8 @@
+name: 'Views Pager Token'
+type: module
+description: '@todo Add description.'
+package: views
+core_version_requirement: ">=10"
+dependencies:
+  - drupal:views
+  - token:token
