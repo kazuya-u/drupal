@@ -26,7 +26,7 @@
         "drupal/gin": "^3.0@RC",
         "drupal/japanese_era_formatter": "^1.0",
         "drupal/token": "^1.14",
-        "drush/drush": "^12.4"
+        "drush/drush": "^13.3"
     },
     "conflict": {
         "drupal/drupal": "*"
